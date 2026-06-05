@@ -74,7 +74,7 @@
             btn.innerText = "Sending...";
 
             try {
-                const response = await fetch('http://localhost:5678/webhook-test/c6aadd2b-f6cd-445a-bbe3-408954cb5262', {
+                const response = await fetch('YOUR_N8N_LINK', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(formData)
