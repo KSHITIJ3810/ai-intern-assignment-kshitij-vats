@@ -35,7 +35,7 @@ How to run: Update the fetch() URL in part-c/index.html with your specific n8n w
 Live Demo: https://drive.google.com/file/d/16yC0PIS61RxKDKKiW53HlKDEAAQ6J-HP/view?usp=sharing
 
 Configuration & Credentials
-n8n Webhook URL: Replace [YOUR_N8N_URL] in the script with your local instance URL (e.g., http://localhost:5678/webhook-test/...).
+n8n Webhook URL: Replace [YOUR_N8N_URL] in the script with your local instance URL (e.g., your local host link and path link of test url)
 
 Environment Variables: This project uses no sensitive API keys; however, for production, n8n credentials should be managed via the n8n "Credentials" tab, and sensitive URLs should be stored in your server's .env file.
 
