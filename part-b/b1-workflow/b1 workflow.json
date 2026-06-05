@@ -1,0 +1,149 @@
+{
+  "name": "b1 workflow",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "c6aadd2b-f6cd-445a-bbe3-408954cb5262",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "b71fe72c-fc03-41ab-8780-a55dbfe55383",
+      "name": "Webhook",
+      "webhookId": "c6aadd2b-f6cd-445a-bbe3-408954cb5262"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "59b72896-7ae2-41e3-b495-f348a6907b6a",
+              "name": "name ",
+              "value": "={{ $json.body.name }}",
+              "type": "string"
+            },
+            {
+              "id": "18c9e038-79b2-4e82-b429-ffdfdd79f6ae",
+              "name": "email",
+              "value": "={{ $json.body.email }}",
+              "type": "string"
+            },
+            {
+              "id": "60d0c36b-1bd6-4893-9a57-608dbb263671",
+              "name": "course_level",
+              "value": "={{ $json.body.course_level }}",
+              "type": "string"
+            },
+            {
+              "id": "3d72dd53-c55e-44a8-a2fd-f1d5de7e0a71",
+              "name": "University",
+              "value": "={{ $json.body.university }}",
+              "type": "string"
+            },
+            {
+              "id": "60efbf87-1c20-4eae-9d9c-e1cfc838025a",
+              "name": "message ",
+              "value": "={{ $json.body.message }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        208,
+        0
+      ],
+      "id": "281f2e6c-9bb7-49cf-9462-36a221c716ea",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "897f859f-c3cc-4f35-92ef-638c959d8534",
+              "leftValue": "course_level",
+              "rightValue": "Postgraduate ",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            },
+            {
+              "id": "119895e9-1479-4477-bab9-2b9a95c9cbcf",
+              "leftValue": "course_level",
+              "rightValue": "PhD",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "or"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        432,
+        0
+      ],
+      "id": "36b6f492-595f-4c1f-bf81-c32dfab0c0f2",
+      "name": "If"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "8635219c-0e64-4d68-9aa2-d7a960ff6c68",
+  "meta": {
+    "instanceId": "f029bfd4d4bf8156d36bb5728185c5399c6860ea9db9442bc71f86398a1e9b62"
+  },
+  "nodeGroups": [],
+  "id": "pJYrc1z1SLq5b4Zo",
+  "tags": []
+}
